@@ -27,30 +27,16 @@
 //    .then(() => console.log("Se ha ejecutado de forma correcta"))
 //    .catch(() => console.log("Se ha ejecutado de forma incorrecta"))
 //    .finally(() => console.log("Se ha ejecutado"))
-function verdadero() {
-    return true;
-}
-
-
-const promesa = new Promise((resolve, reject) => {
-    setTimeout(() => console.log("Hola soy una promesa"), 5000);
-    resolve();
-})
-
-promesa
-    .then(() => console.log("Se ha ejecutado de forma correcta"))
-    .catch(() => console.log("Se ha ejecutado de forma incorrecta"))
-    .finally(() => console.log("Se ha ejecutado"))
-
-function* indices(){
-    id = 0;
-    while(true){
-        yield id++;
+function fun (value){
+    if (typeof value === "number"){
+        return value * value;
     }
+
+    throw new Error("El valor debe ser un número")
 }
-const ind = indices();
-console.log(ind.next().value);
-console.log(ind.next().value);
-console.log(ind.next().value);
-console.log(ind.next().value);
-console.log(ind.next().value);
+
+try {
+    console.log(fun(5));
+} catch(e){
+    console.log(e);
+}
