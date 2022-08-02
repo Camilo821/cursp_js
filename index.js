@@ -42,5 +42,5 @@ class Estudiante{
     
   }
 }
-const estudiante = new Estudiante("Juan", ["Matematicas", "Lengua"]);
-console.log(estudiante.nombre);
+const estudiante = new Estudiante("Juan", ["HTML", "CSS", "JavaScript"]);
+console.log(estudiante.getdatos());
