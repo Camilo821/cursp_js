@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "index": "node index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "holamundo",
@@ -14,6 +15,8 @@
   "author": "Camilo Arboleda",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
+    "es6": "0.0.7",
     "winston": "^3.8.1"
   }
 }

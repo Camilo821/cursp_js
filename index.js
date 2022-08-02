@@ -27,16 +27,20 @@
 //    .then(() => console.log("Se ha ejecutado de forma correcta"))
 //    .catch(() => console.log("Se ha ejecutado de forma incorrecta"))
 //    .finally(() => console.log("Se ha ejecutado"))
-function fun (value){
-    if (typeof value === "number"){
-        return value * value;
+class Estudiante{
+  #nombre
+  #asignaturas
+  constructor(nombre, asignaturas){
+    this.#nombre = nombre;
+    this.#asignaturas = asignaturas;
+  }
+  getdatos(){
+    return {
+      nombre: this.#nombre,
+      asignaturas: this.#asignaturas
     }
-
-    throw new Error("El valor debe ser un número")
+    
+  }
 }
-
-try {
-    console.log(fun(5));
-} catch(e){
-    console.log(e);
-}
+const estudiante = new Estudiante("Juan", ["Matematicas", "Lengua"]);
+console.log(estudiante.nombre);
