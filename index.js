@@ -27,20 +27,19 @@
 //    .then(() => console.log("Se ha ejecutado de forma correcta"))
 //    .catch(() => console.log("Se ha ejecutado de forma incorrecta"))
 //    .finally(() => console.log("Se ha ejecutado"))
-class Estudiante{
-  #nombre
-  #asignaturas
-  constructor(nombre, asignaturas){
-    this.#nombre = nombre;
-    this.#asignaturas = asignaturas;
+
+let num1 = 0;
+let num2 = 1;
+let suma = 0;
+const fibonacci = (num) => {
+  let fibo_nums = [1];
+  for(let x = 0; x < num; x++){
+    suma = num1 + num2;
+    num1 = num2;
+    num2 = suma;
+    fibo_nums.push(suma);
   }
-  getdatos(){
-    return {
-      nombre: this.#nombre,
-      asignaturas: this.#asignaturas
-    }
-    
-  }
+  return fibo_nums;
 }
-const estudiante = new Estudiante("Juan", ["HTML", "CSS", "JavaScript"]);
-console.log(estudiante.getdatos());
+
+console.log(fibonacci(10));
