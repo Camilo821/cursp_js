@@ -80,12 +80,31 @@
 //    $('h1').hide();
 //});
 
-$(document).ready(function(){
-    $('#jquery').click(function(){
-        console.log("Hola estoy aprendiendo Jquery");
-    });
-});
+const parrafos = document.querySelectorAll(".parrafo");
+const secciones = document.querySelectorAll(".section")
+console.log(parrafos);
+parrafos.forEach(parrafo => {
+    parrafo.addEventListener("dragstart", () => {
+        // console.log("Inicio de arrastre")
+        // console.log(parrafo.innerText)
+        parrafo.classList.add("dragging")
+        event.dataTransfer.setData("id", parrafo.id)
+    })
+    parrafo.addEventListener("dragend", () => {
+        // console.log("He terminado de arrastrar")
+        parrafo.classList.remove("dragging")
+    })
+})
 
-document.getElementById("js").addEventListener("click", function(){
-    alert("Hola estoy aprendiendo Javascript");
-});
+secciones.forEach(seccion => {
+    seccion.addEventListener("dragover", () => {
+        event.preventDefault()
+        // console.log("Drag Over")
+    })
+    seccion.addEventListener("drop", () => {
+        // console.log("drop")
+        const parrafo_id = event.dataTransfer.getData("id")
+        const parrafo = document.getElementById(parrafo_id)
+        seccion.appendChild(parrafo)
+    })
+})
